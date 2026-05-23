@@ -1,0 +1,34 @@
+CREATE DATABASE exp2;
+USE exp2;
+
+CREATE TABLE mpexp2 (
+    EMPNO int,
+    ENAME varchar(255),
+    JOB varchar(255),
+    MGR int,
+    SAL decimal(10, 2)
+);
+
+DESC mpexp2;
+
+ALTER TABLE mpexp2 ADD COMMISSION decimal(10, 2);
+
+INSERT INTO mpexp2 (EMPNO, ENAME, JOB, MGR, SAL, COMMISSION)
+VALUES 
+(101, 'kishor', 'developer', NULL, 6500.00, 500.00),
+(102, 'Adithya', 'Tester', 2, 3000.00, NULL),
+(103, 'Chethan', 'Sales person', NULL, 2500.00, 650.00),
+(104, 'Whanau', 'Manager', 1, 7500.00, 800.00),
+(105, 'Harshith', 'Marketing head', NULL, 1500.00, NULL);
+
+SELECT * FROM mpexp2;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE mpexp2 SET JOB = 'project manager' WHERE EMPNO = 102;
+SELECT * from mpexp2;
+
+ALTER TABLE mpexp2 RENAME COLUMN ENAME TO EMPLOYEE_NAME;
+DESC mpexp2;
+
+DELETE FROM mpexp2 WHERE EMPNO = 105;
+SELECT * FROM mpexp2;
